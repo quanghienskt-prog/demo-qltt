@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý chi tiêu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./qlct.css">
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <h2>💰Cost management </h2>
+    <p class="user">Xin chào,<br><strong>Bạn</strong></p>
+  </aside>
+
+  <main class="main">
+    <div class="top-bar">
+      <h1>Tổng quan tài chính</h1>
+      <button onclick="openModal()">+ Thêm giao dịch</button>
+    </div>
+
+    <section class="stats">
+      <div class="stat blue">
+        <p>Số dư</p>
+        <h2 id="balance">0 đ</h2>
+      </div>
+      <div class="stat green">
+        <p>Thu nhập</p>
+        <h2 id="income">0 đ</h2>
+      </div>
+      <div class="stat red">
+        <p>Chi tiêu</p>
+        <h2 id="expense">0 đ</h2>
+      </div>
+    </section>
+
+    <section class="transactions">
+      <h3>Giao dịch gần đây</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ngày</th>
+            <th>Danh mục</th>
+            <th>Mô tả</th>
+            <th>Số tiền</th>
+          </tr>
+        </thead>
+        <tbody id="transactionList"></tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h3>Thêm giao dịch</h3>
+
+    <input type="date" id="date">
+    <input type="text" id="category" placeholder="Danh mục">
+    <input type="text" id="description" placeholder="Mô tả">
+    <input type="number" id="amount" placeholder="Số tiền">
+
+    <select id="type">
+      <option value="income">Thu nhập</option>
+      <option value="expense">Chi tiêu</option>
+    </select>
+
+    <div class="modal-actions">
+      <button onclick="addTransaction()">Lưu</button>
+      <button class="cancel" onclick="closeModal()">Hủy</button>
+    </div>
+  </div>
+</div>
+
+<script src="./qlct.js"></script>
+</body>
+</html>
